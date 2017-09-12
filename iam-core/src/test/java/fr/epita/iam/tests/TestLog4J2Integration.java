@@ -26,6 +26,8 @@ public class TestLog4J2Integration {
 	@Test
 	public void testLogger() {
 		LOGGER.info("test");
+		
+		
 	}
 	
 
