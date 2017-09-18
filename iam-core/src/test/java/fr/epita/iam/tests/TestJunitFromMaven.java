@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -28,13 +30,12 @@ import org.junit.Test;
  */
 public class TestJunitFromMaven {
 	
+	private static final Logger LOGGER = LogManager.getLogger(TestJunitFromMaven.class);
 	
-	private static boolean init;
-
 	
 	@AfterClass
 	public static void globalTearDown() throws IOException {
-		System.out.println("global tearDown");
+		LOGGER.info("global tear down");
 		
 		Files.delete(new File("test.txt").toPath());
 		Files.delete(new File("test2.txt").toPath());
@@ -43,18 +44,18 @@ public class TestJunitFromMaven {
 	
 	@BeforeClass
 	public static void globalSetup() {
-		System.out.println("global setup");
+		LOGGER.info("global setup");
 	}
 	
 	
 	@Before
 	public void setUp() {
-		System.out.println("setup");
+		LOGGER.info("setup");
 	}
 	
 	@After
 	public void tearDown() {
-		System.out.println("tearDown");
+		LOGGER.info("tearDown");
 	}
 	
 	
@@ -71,7 +72,7 @@ public class TestJunitFromMaven {
 		//THEN
 		Assert.assertTrue(file.exists());
 		
-		System.out.println("test");
+		LOGGER.info("test");
 	}
 	
 	@Test
@@ -87,7 +88,7 @@ public class TestJunitFromMaven {
 		//THEN
 		Assert.assertTrue(file.exists());
 		
-		System.out.println("test2");
+		LOGGER.info("test2");
 	}
 	
 
