@@ -25,4 +25,6 @@
 		<property name="username" value="root" />
 		<property name="password" value="password" />
 	</bean>
+    
+    <bean id="jdbcDao" class="fr.tbr.iam.services.JDBCIdendityDAO" />
 </beans>
