@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 import javax.sql.DataSource;
 
 import org.apache.logging.log4j.LogManager;
@@ -24,12 +23,12 @@ import fr.tbr.iam.datamodel.Identity;
  * <h3>Utilisation</h3>
  * <p>
  * Elle s'utilise de la manière suivante :
- * 
+ *
  * <pre>
  * <code>${type_name} instance = new ${type_name}();</code>
  * </pre>
  * </p>
- * 
+ *
  * @since $${version}
  * @see Voir aussi $${link}
  * @author ${user}
@@ -43,24 +42,24 @@ public class JDBCIdendityDAO {
 	@Inject
 	private DataSource ds;
 
-	@Inject
-	@Named("insertionQuery")
+	// @Inject
+	// @Named("insertionQuery")
 	private String insertionQuery;
-	
+
 	public void create(Identity identity) {
 		Connection connection = null;
 		PreparedStatement pstmt = null;
 		try {
 			connection = ds.getConnection();
 			pstmt = connection.prepareStatement(insertionQuery);
-//			pstmt = connection.prepareStatement("INSERT INTO IDENTITIES"
-//					+ " (IDENTITY_DISPLAY_NAME, IDENTITY_EMAIL, IDENTITY_BIRTHDATE)\r\n" + " VALUES\r\n" + " (?, ?, ?)");
+			//			pstmt = connection.prepareStatement("INSERT INTO IDENTITIES"
+			//					+ " (IDENTITY_DISPLAY_NAME, IDENTITY_EMAIL, IDENTITY_BIRTHDATE)\r\n" + " VALUES\r\n" + " (?, ?, ?)");
 			pstmt.setString(1, identity.getDisplayName());
 			pstmt.setString(2, identity.getEmail());
 			pstmt.setDate(3, new java.sql.Date(identity.getBirthDate().getTime()));
 			pstmt.execute();
 
-		} catch (SQLException e) {
+		} catch (final SQLException e) {
 			LOGGER.error("an error occured");
 		} finally {
 			try {
@@ -70,8 +69,8 @@ public class JDBCIdendityDAO {
 				if (pstmt != null) {
 					pstmt.close();
 				}
-				
-			} catch (SQLException sqle) {
+
+			} catch (final SQLException sqle) {
 				LOGGER.error("unrecoverable error", sqle);
 			}
 		}
@@ -87,7 +86,7 @@ public class JDBCIdendityDAO {
 	}
 
 	public List<Identity> search(Identity criteria) {
-		List<Identity> results = new ArrayList<>();
+		final List<Identity> results = new ArrayList<>();
 
 		return results;
 	}

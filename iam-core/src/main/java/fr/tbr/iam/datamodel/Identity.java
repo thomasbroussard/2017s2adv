@@ -2,33 +2,51 @@ package fr.tbr.iam.datamodel;
 
 import java.util.Date;
 
-/** 
- * <h3>Description</h3>  
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+/**
+ * <h3>Description</h3>
  * <p>Cette classe permet de ...</p>
  *
  * <h3>Utilisation</h3>
  * <p>Elle s'utilise de la manière suivante :
  *   <pre><code>${type_name} instance = new ${type_name}();</code></pre>
  * </p>
- *  
+ *
  * @since $${version}
  * @see Voir aussi $${link}
  * @author ${user}
  *
  * ${tags}
  */
+
+@Entity
+@Table(name = "IDENTITIES")
 public class Identity {
-	
+
+	@Id
 	private long id;
+
+	@Column(name = "IDENTITY_DISPLAY_NAME", length = 255)
 	private String displayName;
+
+	@Column(name = "IDENTITY_EMAIL", length = 255)
 	private String email;
+
+	@Column(name = "IDENTITY_BIRTHDATE")
+	@Temporal(TemporalType.DATE)
 	private Date birthDate;
-	
-	
+
+
 	private Identity() {
-		
+
 	}
-	
+
 	/**
 	 * @param id
 	 * @param displayName
@@ -90,6 +108,6 @@ public class Identity {
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
-	
+
 
 }
