@@ -38,4 +38,5 @@
     </bean>
 
     <bean id="jdbcDao" class="fr.tbr.iam.services.JDBCIdendityDAO" />
+    <bean id="hibernateDAO" class="fr.tbr.iam.services.HibernateIdentityDAO" />
 </beans>
