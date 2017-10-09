@@ -5,3 +5,13 @@ link to the mind map [mindmap](https://www.mindomo.com/mindmap/2017s2_adv-9b48c8
 # TODO (19/09/2017)
 - Have a look to Hibernate and find a way to use it
 - Complete the spring exercise with as much simplifications you can find thanks to the spring framework.
+
+# TODO (26/09/2017)
+- Have your HibernateDAO.search() method test case complete
+- complete the way the search() method operates, to add a where clause, so that it takes in account all the Identity properties
+- review everything to prepare to a intermediate quiz.
+
+# TODO (09/10/2017)
+- create a maven web project
+- review what is a servlet, and how to integrate it in a java web application.
+

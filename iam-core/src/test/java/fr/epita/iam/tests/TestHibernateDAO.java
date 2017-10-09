@@ -65,16 +65,45 @@ public class TestHibernateDAO {
 		dao.saveOrUpdate(identity);
 
 		// THEN
-		final Connection connection = ds.getConnection();
-		final PreparedStatement prepareStatement = connection
-				.prepareStatement("SELECT count(*)  FROM IDENTITIES WHERE IDENTITIES.IDENTITY_EMAIL='tbr@tbr.com'");
-		final ResultSet rs = prepareStatement.executeQuery();
-		rs.next();
-		final int count = rs.getInt(1);
+		final int count = executeQuery("SELECT count(*)  FROM IDENTITIES WHERE IDENTITIES.IDENTITY_EMAIL='tbr@tbr.com'");
 		Assert.assertEquals(1, count);
 		LOGGER.info("got this count {}", count);
 		LOGGER.info("test successful");
 
+	}
+
+	/**
+	 * <h3>Description</h3>
+	 * <p>Cette méthode permet de ...</p>
+	 *
+	 * <h3>Utilisation</h3>
+	 * <p>Elle s'utilise de la manière suivante :
+	 *
+	 * <pre><code> ${enclosing_type} sample;
+	 *
+	 * //...
+	 *
+	 * sample.${enclosing_method}();
+	 *</code></pre>
+	 * </p>
+	 *
+	 * @since $${version}
+	 * @see Voir aussi $${link}
+	 * @author ${user}
+	 *
+	 * ${tags}
+	 */
+	private <T> T executeQuery(String sqlQuery) throws SQLException {
+		final Connection connection = ds.getConnection();
+		final PreparedStatement prepareStatement = connection
+				.prepareStatement(sqlQuery);
+		final ResultSet rs = prepareStatement.executeQuery();
+		rs.next();
+		final T count = (T) rs.getObject(1);
+		rs.close();
+		prepareStatement.close();
+		connection.close();
+		return count;
 	}
 
 	@Test
@@ -90,12 +119,7 @@ public class TestHibernateDAO {
 		dao.saveOrUpdate(identity);
 
 		// THEN
-		final Connection connection = ds.getConnection();
-		final PreparedStatement prepareStatement = connection
-				.prepareStatement("SELECT IDENTITY_BIRTHDATE FROM IDENTITIES WHERE IDENTITIES.IDENTITY_EMAIL='tbr@tbr.com'");
-		final ResultSet rs = prepareStatement.executeQuery();
-		rs.next();
-		final Date date = rs.getDate(1);
+		final Date date = executeQuery("SELECT IDENTITY_BIRTHDATE FROM IDENTITIES WHERE IDENTITIES.IDENTITY_EMAIL='tbr@tbr.com'");
 		Assert.assertEquals("09/04/1986", sdf.format(date));
 		LOGGER.info("got this modified {}", date);
 		LOGGER.info("test successful");
