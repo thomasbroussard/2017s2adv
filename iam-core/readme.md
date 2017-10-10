@@ -15,3 +15,6 @@ link to the mind map [mindmap](https://www.mindomo.com/mindmap/2017s2_adv-9b48c8
 - create a maven web project
 - review what is a servlet, and how to integrate it in a java web application.
 
+# TODO (10/10/2017)
+- continue with the project development (you can create all the pages following the instructions here [adv project](http://thomas-broussard.fr/work/java/courses/project/advanced.xhtml "adv project") 
+
