@@ -3,15 +3,46 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
-  <servlet>
-  	<servlet-name>Authenticate</servlet-name>
-  	<display-name>Authenticate</display-name>
-  	<description></description>
-  	<servlet-class>fr.epita.iam.web.actions.Authenticate</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>Authenticate</servlet-name>
-  	<url-pattern>/Authenticate</url-pattern>
-  </servlet-mapping>
+    <display-name>Archetype Created Web Application</display-name>
+    <context-param>
+        <param-name>contextClass</param-name>
+        <param-value>
+            org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+        </param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:applicationContext.xml</param-value>
+    </context-param>
+    <listener>
+        <listener-class>
+            org.springframework.web.context.ContextLoaderListener
+        </listener-class>
+    </listener>
+
+    <servlet>
+        <servlet-name>Authenticate</servlet-name>
+        <display-name>Authenticate</display-name>
+        <description></description>
+        <servlet-class>fr.epita.iam.web.actions.Authenticate</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>IdentityCreation</servlet-name>
+        <display-name>IdentityCreation</display-name>
+        <description>Creation of an Identity within the web application</description>
+        <servlet-class>fr.epita.iam.web.actions.IdentityCreation</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Authenticate</servlet-name>
+        <url-pattern>/Authenticate</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>IdentityCreation</servlet-name>
+        <url-pattern>/IdentityCreation</url-pattern>
+    </servlet-mapping>
+
+
+
+
 </web-app>

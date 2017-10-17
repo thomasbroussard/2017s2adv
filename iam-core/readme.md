@@ -18,3 +18,5 @@ link to the mind map [mindmap](https://www.mindomo.com/mindmap/2017s2_adv-9b48c8
 # TODO (10/10/2017)
 - continue with the project development (you can create all the pages following the instructions here [adv project](http://thomas-broussard.fr/work/java/courses/project/advanced.xhtml "adv project") 
 
+# TODO (17/10/2017)
+- find a way to reconciliate web context and spring context
