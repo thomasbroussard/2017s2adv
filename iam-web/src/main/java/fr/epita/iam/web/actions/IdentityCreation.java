@@ -16,7 +16,7 @@ import fr.tbr.iam.services.HibernateIdentityDAO;
 /**
  * Servlet implementation class IdentityCreation
  */
-public class IdentityCreation extends HttpServlet {
+public class IdentityCreation extends AbstractSpringServlet {
 
 	private static final long serialVersionUID = 1L;
 
@@ -58,5 +58,6 @@ public class IdentityCreation extends HttpServlet {
 			response.sendRedirect("creation.jsp");
 		}
 	}
+
 
 }
