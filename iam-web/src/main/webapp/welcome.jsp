@@ -36,14 +36,14 @@
 
                 <p>Thanks to this action, you can create a brand new Identity, you can click on the button below to
                     begin</p>
-                <button>Create!</button>
+                <a href="creation.jsp">Create!</a>
             </div>
             <div class="col-xs-6">
                 <h4>Identity Search</h4>
 
                 <p>Thanks to this action, you can search an identity and then access to its information. Through this
                     action, you can also modify or delete the wished identity</p>
-                <button>Search!</button>
+                <a href="search.jsp">Create!</a>
             </div>
         </div>
     </div>

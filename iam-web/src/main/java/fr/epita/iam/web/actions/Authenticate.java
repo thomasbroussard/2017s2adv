@@ -46,10 +46,11 @@ public class Authenticate extends AbstractSpringServlet {
 
 		if ("admin".equals(login)) {
 			// then we are authenticated, we can move to the welcome page
+			session.setAttribute("authenticated", true);
 			request.getRequestDispatcher("welcome.jsp").forward(request, response);
 			LOGGER.info("authenticated");
 
-			session.setAttribute("authenticated", true);
+
 		} else {
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 			LOGGER.info("not authenticated");
