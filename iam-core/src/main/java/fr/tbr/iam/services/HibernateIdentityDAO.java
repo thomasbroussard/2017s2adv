@@ -12,6 +12,7 @@ import javax.inject.Inject;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.stereotype.Repository;
 
 import fr.tbr.iam.datamodel.Identity;
 
@@ -36,6 +37,8 @@ import fr.tbr.iam.datamodel.Identity;
  *
  *         ${tags}
  */
+
+@Repository
 public class HibernateIdentityDAO {
 
 	@Inject
@@ -66,4 +69,13 @@ public class HibernateIdentityDAO {
 
 		return identitiesList;
 	}
+
+	/**
+	 * @param sessionFactory
+	 *            the sessionFactory to set
+	 */
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
+
 }

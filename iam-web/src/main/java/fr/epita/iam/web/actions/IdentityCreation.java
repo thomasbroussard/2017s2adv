@@ -41,7 +41,7 @@ public class IdentityCreation extends AbstractSpringServlet {
 			final String email = request.getParameter("email");
 			final String rawDate = request.getParameter("date");
 
-			final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+			final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			final Date date = sdf.parse(rawDate);
 
 			final Identity identity = new Identity(0, displayName, email, date);
