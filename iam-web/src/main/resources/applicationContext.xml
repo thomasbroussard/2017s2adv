@@ -7,6 +7,8 @@
     http://www.springframework.org/schema/context/spring-context.xsd">
 
 
+    <context:annotation-config />
+
     <bean id="hello" class="java.lang.String">
         <constructor-arg value="Bonjour!" />
     </bean>
@@ -39,6 +41,8 @@
 
     <bean id="jdbcDao" class="fr.tbr.iam.services.JDBCIdendityDAO" />
     <bean id="hibernateDAO" class="fr.tbr.iam.services.HibernateIdentityDAO">
-        <property name="sessionFactory"><ref bean="sessionFactory"/></property>
+    <!--     <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property> -->
     </bean>
 </beans>

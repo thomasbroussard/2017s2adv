@@ -70,12 +70,5 @@ public class HibernateIdentityDAO {
 		return identitiesList;
 	}
 
-	/**
-	 * @param sessionFactory
-	 *            the sessionFactory to set
-	 */
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
-	}
 
 }
